@@ -5,10 +5,15 @@ services:
 
   db:
     image: mysql:8.0.30
+    restart: on-failure
     ports:
       - 3306:3306
     environment:
+      - MYSQL_USER=root
+
+      - MYSQL_PASSWORD=worderdb123
       - MYSQL_ROOT_PASSWORD=worderdb123
+
       - MYSQL_DATABASE=worder
     volumes:
       - db:/var/lib/mysql
@@ -19,7 +24,7 @@ services:
       ./worder
     depends_on:
       - db
-    restart: always
+    restart: on-failure
     ports:
       - 8080:8080
     links:
