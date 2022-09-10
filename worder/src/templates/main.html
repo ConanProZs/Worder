@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worder</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+        *{
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Worder</h1>
+    <h2>"Submit new word idea's"</h2>
+    <hr>
+    <form action="/submitted" method="POST">
+        <p>Email:*</p>
+        <p><textarea name="email" id="" cols="30" rows="1" placeholder="Email*" style="resize: none;" required></textarea></p>
+        <p>Full Name:*</p>
+        <p><textarea name="name" id="" cols="40" rows="1" placeholder="Full Name*" style="resize: none;" required></textarea></p>
+        <p>Word:*</p>
+        <p><textarea name="word" id="" cols="28" rows="1" placeholder="Word*" style="resize: none;" required></textarea></p>
+        <p>Word Pronounce:</p>
+        <p><textarea name="wordpro" id="" cols="42" rows="1" placeholder="Word Pronounce" style="resize: none;"></textarea></p>
+        <p>Word Mening:*</p>
+        <p><textarea name="wordmening" id="" cols="68" rows="1" placeholder="Word Mening*  (please dont make the explanation long)" style="resize: none;" required></textarea></p>
+        <br>
+        <h4>(If one or more of this fields are invalid your idea will be ignored.)</h4>
+        <button type="submit" style="width: 125px;"><h3>Submit</h3></button>
+     </form>
+</body>
+</html>
