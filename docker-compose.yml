@@ -6,10 +6,11 @@ services:
   db:
     image: mysql:8.0.30
     restart: on-failure
-    ports:
-      - 3306:3306
+    
+    networks:
+      - worder
     environment:
-      - MYSQL_USER=root
+      - MYSQL_USER=server
 
       - MYSQL_PASSWORD=worderdb123
       - MYSQL_ROOT_PASSWORD=worderdb123
@@ -18,21 +19,28 @@ services:
     volumes:
       - db:/var/lib/mysql
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
-
+    
   flask:
     build:
       ./worder
     depends_on:
       - db
     restart: on-failure
+    networks:
+      - worder
     ports:
       - 8080:8080
     links:
       - db
     volumes:
       - ./:/src
+    
 
   
 volumes:
   db:
     driver: local
+
+networks:
+  worder:
+    driver: bridge
